@@ -24,19 +24,19 @@ class Square:
             self.height
         )
 
-        def get_coord(self):
-            columns = 'abcdefgh'
-            return columns[self.x] + str(self.y + 1)
+    def get_coord(self):
+        columns = 'abcdefgh'
+        return columns[self.x] + str(self.y + 1)
         
-        def draw(self, display):
-            if self.highlight:
-                pygame.draw.rect(display, self.highlight_color, self.rect)
-            else:
-                pygame.draw.rect(display, self.draw_color, self.rect)
+    def draw(self, display):
+        if self.highlight:
+            pygame.draw.rect(display, self.highlight_color, self.rect)
+        else:
+            pygame.draw.rect(display, self.draw_color, self.rect)
 
-            if self.occupying_piece!=None:
-                centering_rect = self.occupying_peice.img.get_rect()
-                centering_rect.center=self.rect.center
-                display.blit(self.occupying_piece.img, centering_rect.topleft())
+        if self.occupying_piece!=None:
+            centering_rect = self.occupying_peice.img.get_rect()
+            centering_rect.center=self.rect.center
+            display.blit(self.occupying_piece.img, centering_rect.topleft())
 
     
