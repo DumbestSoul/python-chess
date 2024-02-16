@@ -47,7 +47,7 @@ class Board:
                 return square
             
     def get_piece_from_pos(self, pos):
-        return self.get_square_from_pos(pos).occupying_peice
+        return self.get_square_from_pos(pos).occupying_piece
     
     def setup_board(self):
         for y, row in enumerate(self.config):
@@ -125,13 +125,13 @@ class Board:
                 king_pos = new_square.pos
 
         if king_pos == None:
-            for piece in piece:
+            for piece in pieces:
                 if piece.notation == 'K' and piece.color == color:
                     king_pos = piece.pos
 
         for piece in pieces:
             if piece.color!=color:
-                for square in piece.attacking_square(self):
+                for square in piece.attacking_squares(self):
                     if square.pos==king_pos:
                         output=True
 
